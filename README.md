@@ -36,7 +36,7 @@ Convert images and PDFs, or crop, compress, annotate and redact them. All in you
 
 ## Quick start
 
-**Use it online:** https://joelhere17.github.io/Alt-Wheel/
+**Use it online:** https://joelhere17.github.io/ALT-Wheel-2.0/
 
 **Run it locally:**
 
