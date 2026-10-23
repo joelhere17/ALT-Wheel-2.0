@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Alt Wheel</title>
+<meta name="description" content="Drag a file onto the wheel to convert it or edit it. Everything runs in your browser.">
+<meta name="application-name" content="Alt Wheel">
+<meta name="version" content="2.0.0">
+<meta name="theme-color" content="#ee7a66">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/wheel.css">
+<link rel="stylesheet" href="css/modals.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="desk" id="desk">
+  <header class="bar">
+    <div class="brand">Alt Wheel <span class="ver">2</span></div>
+    <div class="acts">
+      <button class="pill" id="addBtn" type="button">Add files</button>
+      <button class="pill" id="saveBtn" type="button" disabled>Save</button>
+      <button class="pill" id="zipBtn" type="button" disabled>Save all</button>
+      <button class="pill" id="delBtn" type="button" disabled>Remove</button>
+    </div>
+  </header>
+  <div class="icons" id="icons"></div>
+  <div class="hint" id="hint">Drag a file away from where it sits and a wheel opens under your pointer. Move onto a petal and let go. Space switches between Convert and Tools. Double-click a file to save it.</div>
+  <div class="wl" id="wl" hidden>
+    <div class="wbox" id="wbox"><div class="wglass"></div><svg class="wheel" id="wheel" viewBox="-10 -10 420 420" role="img" aria-label="Wheel of actions"></svg></div>
+    <div class="modehint" id="modehint">Press Space to switch wheels</div>
+    <div class="modebar" id="modebar"><span data-m="convert">Convert</span><span data-m="tools">Tools</span></div>
+  </div>
+  <div class="ghost" id="ghost" hidden><div class="doc" id="gdoc"></div><i class="plus">+</i><div class="nm" id="gname"></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="veil" id="veil">Drop to add</div>
+</div>
+<div id="mroot"></div>
+<input class="sr" type="file" id="picker" multiple accept="image/*,.heic,.heif,.pdf,.tif,.tiff,.bmp,.avif" tabindex="-1" aria-hidden="true">
+
+<!-- Plain scripts, loaded in order, so the app also works when index.html is opened straight from disk. -->
+<script src="js/core/config.js"></script>
+<script src="js/core/canvas.js"></script>
+<script src="js/core/encoders.js"></script>
+<script src="js/core/exif.js"></script>
+<script src="js/app/files.js"></script>
+<script src="js/app/convert.js"></script>
+<script src="js/app/wheel.js"></script>
+<script src="js/app/drag.js"></script>
+<script src="js/app/input.js"></script>
+<script src="js/tools/modal.js"></script>
+<script src="js/tools/crop.js"></script>
+<script src="js/tools/background.js"></script>
+<script src="js/tools/compress.js"></script>
+<script src="js/tools/metadata.js"></script>
+<script src="js/tools/edit.js"></script>
+<script src="js/tools/markup.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

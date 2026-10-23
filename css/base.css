@@ -1,0 +1,84 @@
+/* Alt Wheel - css/base.css
+   Design tokens, desktop wallpaper, toolbar and file icons. */
+
+:root {
+  --ink: #3b1c12;
+  --paper: #ffffff;
+  --peach: #f8cdb3;
+  --peach-deep: #f1a574;
+  --cream: #fbe3d1;
+  --red: #d9301f;
+  --red-hi: #f0553a;
+  --blue: #2f6fe0;
+  --green: #34c759;
+  --panel-a: #f8a84c;
+  --panel-b: #ee7a66;
+  --glass: rgba(255, 255, 255, .22);
+  --glass-line: rgba(255, 255, 255, .5);
+  --font: "Inter", -apple-system, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+  color-scheme: light;
+}
+html, body { height: 100%; }
+body {
+  margin: 0; background: #ff6a45; color: var(--ink);
+  font: 500 14px/1.4 var(--font); overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+.desk {
+  position: relative; width: 100%; height: 100%; min-height: 520px; overflow: hidden;
+  background:
+    radial-gradient(60% 55% at 100% 100%, #7b64d8 0%, rgba(123, 100, 216, 0) 70%),
+    radial-gradient(55% 45% at 82% 0%, #ffc43d 0%, rgba(255, 196, 61, 0) 72%),
+    radial-gradient(70% 55% at 0% 100%, #ff3a4c 0%, rgba(255, 58, 76, 0) 70%),
+    linear-gradient(165deg, #ff8d3a 0%, #ff4f4a 55%, #d04a86 100%);
+}
+.bar {
+  position: absolute; z-index: 5; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding-top: max(12px, env(safe-area-inset-top, 0px)); padding-bottom: 8px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.brand { font-weight: 700; font-size: 15px; color: #fff; text-shadow: 0 1px 6px rgba(80, 10, 10, .35); }
+.acts { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  border: 1px solid var(--glass-line); background: var(--glass); color: #fff;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  font-weight: 600; font-size: 13px; padding: 8px 14px; border-radius: 999px;
+  text-shadow: 0 1px 3px rgba(80, 10, 10, .3); transition: background .15s;
+}
+.pill:hover:not(:disabled) { background: rgba(255, 255, 255, .34); }
+.pill:disabled { opacity: .5; cursor: default; }
+
+body.wheeling .hint { opacity: 0; }
+.hint {
+  position: absolute; left: 0; right: 0; bottom: max(18px, env(safe-area-inset-bottom, 0px)); text-align: center;
+  padding: 0 max(16px, env(safe-area-inset-left, 0px)); color: #fff; font-size: 13px; font-weight: 500;
+  text-shadow: 0 1px 6px rgba(80, 10, 10, .45); pointer-events: none;
+}
+.icons { position: absolute; inset: 0; }
+.fi { position: absolute; width: 96px; text-align: center; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: none; }
+.fi::before { content: ""; position: absolute; left: 50%; top: -8px; width: 84px; height: 98px; margin-left: -42px; border-radius: 10px; background: rgba(92, 30, 18, .52); opacity: 0; transition: opacity .12s; }
+.fi.sel::before { opacity: 1; }
+.doc {
+  position: relative; width: 62px; height: 78px; margin: 0 auto; background: #fff; border-radius: 6px; overflow: hidden;
+  box-shadow: 0 3px 10px rgba(70, 10, 10, .38); display: grid; place-items: center;
+}
+.doc img { width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; }
+.doc .ext { font-weight: 700; font-size: 13px; letter-spacing: .04em; color: var(--red); text-transform: uppercase; }
+.nm {
+  display: inline-block; max-width: 92px; margin-top: 6px; padding: 2px 6px; border-radius: 5px;
+  font-weight: 600; font-size: 11.5px; line-height: 1.25; color: #fff; overflow-wrap: anywhere;
+  text-shadow: 0 1px 4px rgba(70, 10, 10, .55);
+}
+.fi.sel .nm { background: var(--blue); text-shadow: none; }
+.fi .doc, .fi .nm { position: relative; z-index: 1; }
+
+.brand .ver { margin-left: 4px; padding: 1px 8px; border-radius: 999px; background: rgba(255, 255, 255, .28); font-size: .6em; font-weight: 700; vertical-align: middle; }
+
+/* Page-level safety rules */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+[hidden] { display: none !important; }
+img { max-width: 100%; }

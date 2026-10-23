@@ -1,0 +1,10 @@
+/* Alt Wheel - css/responsive.css
+   Small screens and reduced motion. */
+
+@media (max-width: 520px) {
+  .hint { font-size: 12px; }
+  .row .lb { width: 54px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wheel, .ghost .plus, .toast { transition: none; }
+}
